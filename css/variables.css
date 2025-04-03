@@ -1,0 +1,32 @@
+:root{
+    --color-1: #FFFFFF;
+    --color-2: #E2F163;
+    --color-3: #896CFE; 
+    --color-4: #B3A0FF; 
+    --color-5: #232323; 
+}
+
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url(../storage/font/Poppins/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: "Poppins-SemiBold";
+    src: url(../storage/font/Poppins/Poppins-SemiBold.ttf);
+}
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url(../storage/font/Poppins/Poppins-Medium.ttf);
+}
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../storage/font/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: "LeagueSpartan-Medium";
+    src: url(../storage/font/League_Spartan/static/LeagueSpartan-Medium.ttf);
+}
+@font-face {
+    font-family: "LeagueSpartan-Light";
+    src: url(../storage/font/League_Spartan/static/LeagueSpartan-Light.ttf);
+}
