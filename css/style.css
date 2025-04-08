@@ -163,12 +163,39 @@ body{
     h1{
         color: var(--color-2);
         font-family: "Poppins-Medium";
-        font-size: 90%;
+        font-size: 120%;
         text-align: center;
+        text-wrap: nowrap;
     }
     span{
         color: var(--color-1);
         font-family: "Poppins-Regular";
         font-size: 80%;
+        text-wrap: wrap
     };
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60svw;
+    }
+}
+.section_bottom {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div_article {
+    p{
+        color: var(--color-1);
+        font-family: "Poppins-Regular";
+        font-size: 80%;
+    }
+}
+.article_bottom{
+    display: flex;
+    gap: 10px;
 }
