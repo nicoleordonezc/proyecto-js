@@ -5,3 +5,142 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: var(--color-6);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3svh;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13svw;
+    h1{
+        color: var(--color-3);
+        font-family: "Poppins-Bold";
+        font-size: 150%;
+    };
+    p{
+        color: var(--color-1);
+        font-family: "LeagueSpartan-Medium";
+        font-size: 100%;
+    };
+    .title{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+}
+.div_header {
+    display: flex;
+    gap: 20%;
+    img{
+        width: 6svw;
+        height: auto;
+    }
+}
+.section_top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    h4{
+        color: var(--color-4);
+        font-family: "LeagueSpartan-Light";
+        font-size: 100%;
+        text-wrap: wrap;
+        text-align: center;
+    }
+    img{
+        width: 8svw;
+        height: 8svh;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        .ejercicio{
+            color: var(--color-2);
+        }
+    }
+}
+.main {
+}
+.section_videos {
+    width: 100%;
+}
+.title-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    h1{
+        color: var(--color-2);
+        font-family: "Poppins-Medium";
+        font-size: 100%;
+    }
+    span{
+        color: var(--color-1);
+        font-family: "Poppins-Medium";
+        font-size: 80%;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+}
+.article_video{
+    display: flex;
+    gap: 10px;
+}
+.div_video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 42svw;
+    border-radius: 16px;
+    border: 1px solid var(--color-1) ;
+    border-color: var(--color-1);
+    /* background-color: red; */
+    h3{
+        color: var(--color-2);
+        font-family: "Poppins-Regular";
+        font-size: 100%;
+        text-wrap: wrap;
+        text-align: left;
+        padding: 5px 10px;
+    }
+    img{
+        width: 100%;
+    }
+}
+.div_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 4px;
+    padding-bottom: 9px;
+    
+}
+.div_mc {
+    display: flex;
+    gap: 5px;
+    span{
+        color: var(--color-1);
+        font-family: "LeagueSpartan-Light";
+        font-size: 80%;
+        text-wrap: nowrap;
+    }
+}
+
