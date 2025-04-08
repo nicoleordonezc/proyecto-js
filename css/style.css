@@ -74,12 +74,16 @@ body{
 .main {
 }
 .section_videos {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .title-2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
     padding-bottom: 10px;
     h1{
         color: var(--color-2);
@@ -110,7 +114,7 @@ body{
     width: 42svw;
     border-radius: 16px;
     border: 1px solid var(--color-1) ;
-    border-color: var(--color-1);
+    margin-bottom: 20px;
     /* background-color: red; */
     h3{
         color: var(--color-2);
@@ -144,3 +148,27 @@ body{
     }
 }
 
+.section_middle {
+    background: var(--color-4);
+    padding: 27px;
+    width: 100svw;
+}
+.article_middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-6);
+    border-radius: 20px;
+    text-align: center;
+    h1{
+        color: var(--color-2);
+        font-family: "Poppins-Medium";
+        font-size: 90%;
+        text-align: center;
+    }
+    span{
+        color: var(--color-1);
+        font-family: "Poppins-Regular";
+        font-size: 80%;
+    };
+}
