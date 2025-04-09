@@ -107,6 +107,9 @@ body{
         gap: 5px;
     }
 }
+.div_a{
+    text-decoration: none;
+}
 .article_video{
     display: flex;
     gap: 10px;

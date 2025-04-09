@@ -1,11 +1,14 @@
 
-    const url = new URL("https://api.api-ninjas.com/v1/exercises");
-  
-    const miForm = document.getElementById("form");
+const url = new URL("https://api.api-ninjas.com/v1/exercises");
 
-    miForm.onsubmit = (event) => {
-        event.preventDefault();
-        var nombreDelCampo = miForm.busqueda.value;
+
+const miForm = document.getElementById("form");
+
+
+
+miForm.onsubmit = (event) => {
+    event.preventDefault();
+    var nombreDelCampo = miForm.busqueda.value;
     fetch(url,{
         method: 'GET',
         headers:{
