@@ -15,31 +15,36 @@ body{
     align-items: center;
     gap: 3svh;
 }
-.header {
+.form {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 13svw;
-    h1{
-        color: var(--color-3);
-        font-family: "Poppins-Bold";
-        font-size: 150%;
-    };
-    p{
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    input{
         color: var(--color-1);
         font-family: "LeagueSpartan-Medium";
         font-size: 100%;
+        background: transparent;
+        border: 0;
+        width: 70svw;
+        height: 6svh;
+        ::placeholder{
+            color: var(--color-1);
+            font-family: "LeagueSpartan-Medium";
+            font-size: 100%;
+        }
     };
-    .title{
-        display: flex;
-        flex-direction: column;
-        justify-content: left;
-    }
 }
 .div_header {
-    display: flex;
-    gap: 20%;
     img{
+        width: 6svw;
+        height: auto;
+    }
+    button{
+        background: transparent;
+        cursor: pointer;
+        border: 0;
         width: 6svw;
         height: auto;
     }
