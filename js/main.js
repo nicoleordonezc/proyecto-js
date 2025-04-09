@@ -1,25 +1,5 @@
 
     const url = new URL("https://api.api-ninjas.com/v1/exercises");
-
-
-    // fetch(url,{
-    //     method: 'GET',
-    //     headers:{
-    //         'x-api-key': 'bijlCIvPMXFto3M7dXZV3TJUxcJKJldS4Qi8izG8'
-    //     }
-    // })
-    // .then (respuesta => respuesta.json())
-    // .then ( info => {
-    //     info.forEach(element => {
-    //         const ejercicio = element.name
-    //         console.log(ejercicio);
-    //     });
-        
-    // })
-    // .catch(error =>{
-    //     console.error('hubo un error:', error)
-    // });
-    
   
     const miForm = document.getElementById("form");
 
@@ -33,16 +13,18 @@
         }
     })
     .then (respuesta => respuesta.json())
-    .then ( info => {
-        // info.forEach(element => {
-        //     const ejercicio = element.name
-        //     console.log(ejercicio);
-        // });
-        const filtro = info.filter(ejercicios => ejercicios.name=== 'string' && ejercicios.name.toLowercase().includes(nombreDelCampo))
-        console.log(filtro);
-        
-    })
+    .then (info => {
+          const resultados = info.filter(element => {
+          const nombreEjercicio = element.name.toLowerCase();
+          return nombreEjercicio && nombreEjercicio.includes(nombreDelCampo);
+        });
+        if (resultados.length === 0) {
+            throw new Error('No se encontraron coincidencias');
+          }
+      
+        console.log('Resultados encontrados:', resultados);
+      })
     .catch(error =>{
         console.error('hubo un error:', error)
-    })
-    }
+    })}
+    
