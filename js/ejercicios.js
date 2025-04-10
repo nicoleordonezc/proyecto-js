@@ -12,15 +12,22 @@ export  const caja = function(){
             const elemento = document.getElementById("contenedor");
             const crearNombre = document.createElement("h1");
             crearNombre.textContent = element.name;
-
+            
             const dificultad = document.createElement("span")
             dificultad.textContent = element.difficulty;
-
+            
             const instrucciones = document.createElement("p")
             instrucciones.textContent = element.instructions;
-
+            
             elemento.append(crearNombre, dificultad, instrucciones)
+
+            crearNombre.classList.add("titulo")
+            dificultad.classList.add("dificultad")
+            instrucciones.classList.add("instrucciones")
         });
     })
     
-}
+};
+
+
+

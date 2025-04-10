@@ -22,10 +22,30 @@ miForm.onsubmit = (event) => {
           const nombreEjercicio = element.name.toLowerCase();
           return nombreEjercicio && nombreEjercicio.includes(nombreDelCampo);
         });
+
+        const elemento = document.getElementById("contenedor");
+        elemento.innerHTML="";
+
         if (resultados.length === 0) {
             throw new Error('No se encontraron coincidencias');
           }
-      
+          resultados.forEach(item => {
+            const crearNombre = document.createElement("h1");
+            crearNombre.textContent = item.name;
+
+            const dificultad = document.createElement("span")
+            dificultad.textContent = item.difficulty;
+
+            const instrucciones = document.createElement("p")
+            instrucciones.textContent = item.instructions;
+
+            elemento.append(crearNombre, dificultad, instrucciones);
+            
+            crearNombre.classList.add("titulo")
+            dificultad.classList.add("dificultad")
+            instrucciones.classList.add("instrucciones")
+            
+          });
         console.log('Resultados encontrados:', resultados);
       })
     .catch(error =>{

@@ -50,3 +50,20 @@ body{
         height: auto;
     }
 }
+
+.titulo {
+    color: var(--color-2);
+    font-family: "Poppins-Medium";
+    font-size: 150%;
+}
+.dificultad{
+    color: var(--color-4);
+    font-family: "LeagueSpartan-Medium";
+    font-size: 100%;
+}
+.instrucciones{
+    color: var(--color-1);
+    font-family: "LeagueSpartan-Light";
+    font-size: 100%;
+    padding-bottom: 50px;
+}
