@@ -1,3 +1,4 @@
+import {caja} from "./ejercicios.js"
 
 const url = new URL("https://api.api-ninjas.com/v1/exercises");
 
@@ -31,3 +32,4 @@ miForm.onsubmit = (event) => {
         console.error('hubo un error:', error)
     })}
     
+    caja()
