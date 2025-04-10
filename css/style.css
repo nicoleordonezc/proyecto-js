@@ -5,3 +5,205 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: var(--color-6);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3svh;
+}
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    input{
+        color: var(--color-1);
+        font-family: "LeagueSpartan-Medium";
+        font-size: 100%;
+        background: transparent;
+        border: 0;
+        width: 70svw;
+        height: 6svh;
+        ::placeholder{
+            color: var(--color-1);
+            font-family: "LeagueSpartan-Medium";
+            font-size: 100%;
+        }
+    };
+}
+.div_header {
+    img{
+        width: 6svw;
+        height: auto;
+    }
+    button{
+        background: transparent;
+        cursor: pointer;
+        border: 0;
+        width: 6svw;
+        height: auto;
+    }
+}
+.section_top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    h4{
+        color: var(--color-4);
+        font-family: "LeagueSpartan-Light";
+        font-size: 100%;
+        text-wrap: wrap;
+        text-align: center;
+    }
+    img{
+        width: 8svw;
+        height: 8svh;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        .ejercicio{
+            color: var(--color-2);
+        }
+    }
+}
+.main {
+}
+.section_videos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding-bottom: 10px;
+    h1{
+        color: var(--color-2);
+        font-family: "Poppins-Medium";
+        font-size: 100%;
+    }
+    span{
+        color: var(--color-1);
+        font-family: "Poppins-Medium";
+        font-size: 80%;
+    }
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+}
+.div_a{
+    text-decoration: none;
+}
+.article_video{
+    display: flex;
+    gap: 10px;
+}
+.div_video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 42svw;
+    border-radius: 16px;
+    border: 1px solid var(--color-1) ;
+    margin-bottom: 20px;
+    /* background-color: red; */
+    h3{
+        color: var(--color-2);
+        font-family: "Poppins-Regular";
+        font-size: 100%;
+        text-wrap: wrap;
+        text-align: left;
+        padding: 5px 10px;
+    }
+    img{
+        width: 100%;
+    }
+}
+.div_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 4px;
+    padding-bottom: 9px;
+    
+}
+.div_mc {
+    display: flex;
+    gap: 5px;
+    span{
+        color: var(--color-1);
+        font-family: "LeagueSpartan-Light";
+        font-size: 80%;
+        text-wrap: nowrap;
+    }
+}
+
+.section_middle {
+    background: var(--color-4);
+    padding: 27px;
+    width: 100svw;
+}
+.article_middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-6);
+    border-radius: 20px;
+    text-align: center;
+    h1{
+        color: var(--color-2);
+        font-family: "Poppins-Medium";
+        font-size: 120%;
+        text-align: center;
+        text-wrap: nowrap;
+    }
+    span{
+        color: var(--color-1);
+        font-family: "Poppins-Regular";
+        font-size: 80%;
+        text-wrap: wrap
+    };
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60svw;
+    }
+}
+.section_bottom {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.div_article {
+    p{
+        color: var(--color-1);
+        font-family: "Poppins-Regular";
+        font-size: 80%;
+    }
+}
+.article_bottom{
+    display: flex;
+    gap: 10px;
+}
