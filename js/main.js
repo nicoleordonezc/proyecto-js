@@ -1,4 +1,5 @@
-import {caja} from "./ejercicios.js"
+import {caja } from "./ejercicios.js"
+import { rutina } from "./rutina.js";
 
 const url = new URL("https://api.api-ninjas.com/v1/exercises");
 
@@ -30,6 +31,8 @@ miForm.onsubmit = (event) => {
             throw new Error('No se encontraron coincidencias');
           }
           resultados.forEach(item => {
+            const div = document.createElement("div");
+
             const crearNombre = document.createElement("h1");
             crearNombre.textContent = item.name;
 
@@ -39,12 +42,15 @@ miForm.onsubmit = (event) => {
             const instrucciones = document.createElement("p")
             instrucciones.textContent = item.instructions;
 
-            elemento.append(crearNombre, dificultad, instrucciones);
-            
+            div.append(crearNombre, dificultad, instrucciones);
+
+            elemento.append(div);
+
+            div.classList.add("div_contenedor")
             crearNombre.classList.add("titulo")
             dificultad.classList.add("dificultad")
             instrucciones.classList.add("instrucciones")
-            
+
           });
         console.log('Resultados encontrados:', resultados);
       })
@@ -52,4 +58,5 @@ miForm.onsubmit = (event) => {
         console.error('hubo un error:', error)
     })}
     
-    caja()
+    caja();
+    rutina();

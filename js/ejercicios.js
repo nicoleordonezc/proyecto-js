@@ -10,6 +10,11 @@ export  const caja = function(){
     .then(info =>{
         info.forEach(element => {
             const elemento = document.getElementById("contenedor");
+            const div = document.createElement("div");
+            div.id = "div_box";
+            const guardar = document.createElement("button");
+            guardar.textContent = "guardar";
+            
             const crearNombre = document.createElement("h1");
             crearNombre.textContent = element.name;
             
@@ -19,15 +24,43 @@ export  const caja = function(){
             const instrucciones = document.createElement("p")
             instrucciones.textContent = element.instructions;
             
-            elemento.append(crearNombre, dificultad, instrucciones)
+            div.append(guardar, crearNombre, dificultad, instrucciones);
 
+            elemento.append(div);
+
+            div.classList.add("div_contenedor")
             crearNombre.classList.add("titulo")
             dificultad.classList.add("dificultad")
             instrucciones.classList.add("instrucciones")
-        });
-    })
+            guardar.classList.add("guardar-btn")
+
+            guardar.addEventListener("click", () => {
+                const tarjeta = {
+                  nombre: element.name,
+                  dificultad: element.difficulty,
+                  instrucciones: element.instructions,
+                };
+              
+                let tarjetasGuardadas = JSON.parse(localStorage.getItem("tarjetas")) || [];
+              
+                const yaExiste = tarjetasGuardadas.some(t => t.nombre === tarjeta.nombre);
+              
+                if (yaExiste) {
+                    
+                    guardar.disabled = true;
+                    guardar.classList.add("guardado");
+                  return;
+                }
+              
+                tarjetasGuardadas.push(tarjeta);
+                localStorage.setItem("tarjetas", JSON.stringify(tarjetasGuardadas));
+              
+                
+                guardar.textContent = "Guardado";
+                guardar.disabled = true;
+                guardar.classList.add("guardado");
+              
+              });
+              
+    })})};
     
-};
-
-
-

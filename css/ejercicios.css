@@ -66,4 +66,16 @@ body{
     font-family: "LeagueSpartan-Light";
     font-size: 100%;
     padding-bottom: 50px;
+    text-align: justify;
+}
+.div_contenedor{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contenedor{
+    padding: 20px;
+}
+.guardar-btn{
+    color: blue;
 }
