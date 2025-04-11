@@ -519,7 +519,65 @@
     overflow: hidden;
     z-index: 2;
   }
+  /* Estilos para el botón de expandir descripción */
+.expandir-btn {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--color-primary);
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+  }
   
+  .expandir-btn:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+  
+  /* Ajuste para las instrucciones */
+  .instrucciones {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem; /* Reducido para dar espacio al botón */
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    transition: all var(--transition-normal);
+  }
+  
+  /* Clase para cuando está expandido */
+  .instrucciones.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+  }
+  
+  /* Ajuste para el contenedor cuando está expandido */
+  .div_contenedor:has(.instrucciones.expanded) {
+    z-index: 20;
+  }
+  
+  /* Animación para la expansión */
+  @keyframes expandText {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+  }
+  
+  .instrucciones.expanded {
+    animation: expandText 0.3s ease-out forwards;
+  }
   /* Media queries para responsividad */
   @media (max-width: 768px) {
     #contenedor {

@@ -24,8 +24,14 @@ export  const caja = function(){
             const instrucciones = document.createElement("p")
             instrucciones.textContent = element.instructions;
             
-            div.append(guardar, crearNombre, dificultad, instrucciones);
-
+            // Crear el botón para expandir la descripción
+            const expandirBtn = document.createElement("button");
+            expandirBtn.textContent = "Ver más";
+            expandirBtn.classList.add("expandir-btn");
+            
+            // Agregar elementos al div
+            div.append(guardar, crearNombre, dificultad, instrucciones, expandirBtn);
+            
             elemento.append(div);
 
             div.classList.add("div_contenedor")
@@ -33,6 +39,16 @@ export  const caja = function(){
             dificultad.classList.add("dificultad")
             instrucciones.classList.add("instrucciones")
             guardar.classList.add("guardar-btn")
+
+            // Event listener para expandir/contraer descripción
+            expandirBtn.addEventListener("click", () => {
+                instrucciones.classList.toggle("expanded");
+                if(instrucciones.classList.contains("expanded")) {
+                    expandirBtn.textContent = "Ver menos";
+                } else {
+                    expandirBtn.textContent = "Ver más";
+                }
+            });
 
             guardar.addEventListener("click", () => {
                 const tarjeta = {
