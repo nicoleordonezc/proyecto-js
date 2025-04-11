@@ -1,14 +1,14 @@
 export const rutina = document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("contenedor");
   
-    const tarjetas = JSON.parse(localStorage.getItem("tarjetas")) || [];
+    let tarjetas = JSON.parse(localStorage.getItem("tarjetas")) || [];
   
     if (tarjetas.length === 0) {
       contenedor.innerHTML = "<p>No hay tarjetas guardadas.</p>";
       return;
     }
   
-    tarjetas.forEach(tarjeta => {
+    tarjetas.forEach((tarjeta, index) => {
       const div = document.createElement("div");
       div.classList.add("div_contenedor");
   
@@ -24,7 +24,19 @@ export const rutina = document.addEventListener("DOMContentLoaded", () => {
       instrucciones.textContent = tarjeta.instrucciones;
       instrucciones.classList.add("instrucciones");
   
-      div.append(nombre, dificultad, instrucciones);
+      const eliminarBtn = document.createElement("button");
+      eliminarBtn.textContent = "Eliminar";
+      eliminarBtn.style.marginTop = "10px";
+      eliminarBtn.addEventListener("click", () => {
+        tarjetas = tarjetas.filter(t => t.nombre !== tarjeta.nombre);
+  
+        localStorage.setItem("tarjetas", JSON.stringify(tarjetas));
+  
+        div.remove();
+
+      });
+  
+      div.append(nombre, dificultad, instrucciones, eliminarBtn);
       contenedor.appendChild(div);
     });
   });
