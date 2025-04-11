@@ -13,7 +13,7 @@ export  const caja = function(){
             const div = document.createElement("div");
             div.id = "div_box";
             const guardar = document.createElement("button");
-            guardar.textContent = "guardar";
+            guardar.textContent = "Save";
             
             const crearNombre = document.createElement("h1");
             crearNombre.textContent = element.name;
@@ -56,7 +56,7 @@ export  const caja = function(){
                 localStorage.setItem("tarjetas", JSON.stringify(tarjetasGuardadas));
               
                 
-                guardar.textContent = "Guardado";
+                guardar.textContent = "Saved";
                 guardar.disabled = true;
                 guardar.classList.add("guardado");
               

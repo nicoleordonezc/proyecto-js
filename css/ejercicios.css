@@ -283,54 +283,291 @@
       radial-gradient(circle at 80% 70%, rgba(255, 230, 0, 0.03) 0%, transparent 50%);
     z-index: -1;
   }
+  /**ooooooooooooooo/
+  /* Estilos para las tarjetas de ejercicios */
+:root {
+    --color-primary: #ffe600;
+    --color-primary-dark: #e6cf00;
+    --color-primary-light: rgba(255, 230, 0, 0.15);
+    --color-bg-dark: #1e1e1a;
+    --color-bg-main: #2a2a23;
+    --color-bg-light: #333328;
+    --color-bg-card: rgba(30, 30, 26, 0.85);
+    --color-text: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.7);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 18px;
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+  }
   
-  /* Añadir elementos decorativos */
-  .contenedor {
+  /* Contenedor principal de tarjetas */
+  #contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
     position: relative;
+  }
+  
+  /* Tarjetas individuales */
+  .div_contenedor {
+    background: var(--color-bg-card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+  }
+  
+  .div_contenedor::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0.6;
+    transition: all var(--transition-slow);
+  }
+  
+  .div_contenedor:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(255, 230, 0, 0.15);
+  }
+  
+  .div_contenedor:hover::before {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  
+  /* Título del ejercicio */
+  .titulo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0.5rem 0 0.7rem;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  
+  .titulo::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 3px;
+    transition: width var(--transition-normal);
+  }
+  
+  .div_contenedor:hover .titulo::after {
+    width: 60px;
+  }
+  
+  /* Nivel de dificultad */
+  .dificultad {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 230, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+  }
+  
+  /* Estilos diferentes según la dificultad */
+  .dificultad:contains("beginner") {
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.2);
+  }
+  
+  .dificultad:contains("intermediate") {
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.2);
+  }
+  
+  .dificultad:contains("advanced") {
+    color: #fb7185;
+    border-color: rgba(251, 113, 133, 0.2);
+  }
+  
+  /* Instrucciones del ejercicio */
+  .instrucciones {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    transition: all var(--transition-normal);
+  }
+  
+  .div_contenedor:hover .instrucciones {
+    color: var(--color-text);
+  }
+  
+  /* Botón guardar */
+  .guardar-btn {
+    align-self: flex-end;
+    background: rgba(255, 230, 0, 0.15);
+    color: var(--color-primary);
+    border: 1px solid rgba(255, 230, 0, 0.3);
+    border-radius: var(--border-radius-sm);
+    padding: 0.7rem 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
     z-index: 2;
   }
   
-  @keyframes float {
-    0% { transform: translateY(0) rotate(0); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0); }
-  }
-  
-  section#contenedor::after {
-    content: '+';
-    position: absolute;
-    top: 10%;
-    right: 8%;
-    font-size: 6rem;
-    color: rgba(255, 230, 0, 0.05);
-    z-index: 0;
-    animation: float 8s ease-in-out infinite;
-  }
-  
-  /* Elementos adicionales decorativos */
-  section#contenedor .contenedor::before {
+  .guardar-btn::before {
     content: '';
     position: absolute;
-    bottom: -50px;
-    left: 5%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 230, 0, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: all 0.6s;
     z-index: -1;
   }
   
-  section#contenedor .contenedor::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: rgba(255, 230, 0, 0.2);
-    box-shadow: 0 0 30px 10px rgba(255, 230, 0, 0.1);
-    z-index: -1;
+  .guardar-btn:hover {
+    background: rgba(255, 230, 0, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 230, 0, 0.15);
+  }
+  
+  .guardar-btn:hover::before {
+    left: 100%;
+  }
+  
+  .guardar-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* Estilo para botón guardado */
+  .guardado {
+    background: rgba(120, 120, 120, 0.2) !important;
+    color: #aaa !important;
+    border-color: rgba(120, 120, 120, 0.3) !important;
+    cursor: default !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .guardado::before {
+    display: none;
+  }
+  
+  /* Añadir un icono check al botón guardado */
+  .guardado::after {
+    content: ' ✓';
+    margin-left: 5px;
+  }
+  
+  /* Media queries para responsividad */
+  @media (max-width: 768px) {
+    #contenedor {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+    
+    .div_contenedor {
+      padding: 1.5rem;
+    }
+    
+    .titulo {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    #contenedor {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      padding: 1rem 0;
+    }
+    
+    .div_contenedor {
+      padding: 1.3rem;
+    }
+    
+    .instrucciones {
+      -webkit-line-clamp: 4;
+    }
+  }
+  
+  /* Animaciones para entrada de tarjetas */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .div_contenedor {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+  }
+  
+  /* Efecto expandir instrucciones al hacer clic */
+  .instrucciones.expanded {
+    -webkit-line-clamp: unset;
+    cursor: default;
+  }
+  
+  /* Vista previa al pasar el cursor por las imágenes */
+  .div_contenedor:hover {
+    z-index: 10;
   }
   
   /* Animaciones y efectos */
