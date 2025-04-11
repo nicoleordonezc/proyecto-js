@@ -1,7 +1,370 @@
 @import url(variables.css);
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Variables para colores y efectos */
+:root {
+    --color-primary: #ffe600;
+    --color-primary-dark: #e6cf00;
+    --color-bg-dark: #1e1e1a;
+    --color-bg-main: #2a2a23;
+    --color-bg-light: #333328;
+    --color-text: #ffffff;
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --transition-normal: 0.3s ease;
+  }
+  
+body {
+    background-color: #2a2a23;
+    color: var(--color-1);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+  }
+
+
+header.div_header {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header.div_header nav {
+    width: 100%;
+  }
+
+.add-button {
+    color: var(--color-1);
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: none;
+}
+  /* Header con efecto glassmorphism */
+  header.div_header {
+    background: rgba(26, 26, 22, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+  }
+  
+  header.div_header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 230, 0, 0.05), transparent);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  header.div_header:hover::before {
+    opacity: 1;
+  }
+  
+  /* Navegación */
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Menú de navegación moderno */
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0;
+    gap: 1.5rem;
+    position: relative;
+  }
+  
+  nav ul::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+  
+  nav ul li {
+    position: relative;
+  }
+  
+  nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    transition: color var(--transition-normal);
+    font-size: 0.95rem;
+    display: block;
+  }
+  
+  nav ul li a:hover {
+    color: var(--color-primary);
+  }
+  
+  nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-normal);
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  
+  nav ul li a:hover::before {
+    width: 70%;
+    opacity: 1;
+  }
+  
+  /* Indicador de página activa - index.html */
+  nav ul li a[href="index.html"] {
+    color: var(--color-primary);
+  }
+  
+  nav ul li a[href="index.html"]::before {
+    width: 70%;
+    opacity: 1;
+  }
+  
+
+
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 180px;
+    background-color: #2a2a23;
+    background-image: linear-gradient(to bottom, #2a2a23, #333328);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(45, 45, 35, 0.5) 0%, rgba(26, 26, 19, 0.8) 70%);
+
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.main-title {
+    font-size: 5rem;
+    /* font-weight: 900; */
+    /* line-height: 1; */
+    margin-bottom: 20px;
+    font-family: "JockeyOne-Regular";
+    letter-spacing: 50%;
+}
+
+.title-top {
+    color: var(--color-2);
+}
+
+.title-bottom {
+    color: var(--color-1);
+    
+}
+
+.hero-text {
+    max-width: 500px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+.runner-image {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    height: 90%;
+    z-index: 1;
+}
+
+.decorative-element {
+    position: absolute;
+    color: var(--color-1);
+    font-size: 2rem;
+    z-index: 0;
+}
+
+.decorative-element:nth-child(1) {
+    top: 15%;
+    left: 10%;
+}
+
+.decorative-element:nth-child(2) {
+    top: 70%;
+    left: 5%;
+}
+
+.decorative-element:nth-child(3) {
+    top: 20%;
+    right: 15%;
+}
+
+.decorative-element:nth-child(4) {
+    bottom: 25%;
+    right: 5%;
+}
+
+.brands {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #2a2a23;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+.brand-logo {
+    height: 30px;
+    opacity: 0.8;
+    filter: grayscale(100%) brightness(10);
+}
+
+
+@media (max-width: 1200px) {
+    .main-title {
+        font-size: 4rem;
+    }
+    .hero{
+        min-height: 100vh;
+        padding: 0 10%;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+    
+    .runner-image {
+        right: 0;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .runner-image {
+        right: -5%;
+        max-width: 55%;
+        opacity: 0.8; /* Ligera transparencia en pantallas más pequeñas */
+    }
+    
+    .hero-text {
+        max-width: 60%;
+        font-size: 0.85rem;
+    }
+    
+    header {
+        flex-wrap: wrap;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero {
+        min-height: 90vh;
+    }
+    
+    .runner-image {
+        bottom: 0;
+        right: -15%;
+        max-width: 70%;
+        opacity: 0.7;
+    }
+    
+    .hero-text {
+        max-width: 80%;
+        font-size: 0.8rem;
+    }
+    
+    .brands {
+        justify-content: center;
+    }
+    
+    .brand-logo {
+        height: 25px;
+        margin: 10px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .hero-content {
+        width: 100%;
+        
+    }
+    
+    .hero-text {
+        max-width: 100%;
+    }
+    
+    .runner-image {
+        max-width: 80%;
+        opacity: 0.5;
+    }
 }
