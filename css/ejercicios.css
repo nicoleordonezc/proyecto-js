@@ -508,6 +508,24 @@
     content: ' ✓';
     margin-left: 5px;
   }
+
+  .eliminar{
+    align-self: flex-end;
+    background: rgba(255, 230, 0, 0.15);
+    color: var(--color-primary);
+    border: 1px solid rgba(255, 230, 0, 0.3);
+    border-radius: var(--border-radius-sm);
+    padding: 0.7rem 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
   
   /* Media queries para responsividad */
   @media (max-width: 768px) {

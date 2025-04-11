@@ -19,13 +19,14 @@ export const rutina = document.addEventListener("DOMContentLoaded", () => {
       const dificultad = document.createElement("span");
       dificultad.textContent = tarjeta.dificultad;
       dificultad.classList.add("dificultad");
-  
+      
       const instrucciones = document.createElement("p");
       instrucciones.textContent = tarjeta.instrucciones;
       instrucciones.classList.add("instrucciones");
-  
+      
       const eliminarBtn = document.createElement("button");
-      eliminarBtn.textContent = "Eliminar";
+      eliminarBtn.classList.add("eliminar")
+      eliminarBtn.textContent = "Delete";
       eliminarBtn.style.marginTop = "10px";
       eliminarBtn.addEventListener("click", () => {
         tarjetas = tarjetas.filter(t => t.nombre !== tarjeta.nombre);

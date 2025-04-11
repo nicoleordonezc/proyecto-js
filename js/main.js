@@ -33,6 +33,9 @@ miForm.onsubmit = (event) => {
           resultados.forEach(item => {
             const div = document.createElement("div");
 
+            const guardar = document.createElement("button");
+            guardar.textContent = "Save";
+
             const crearNombre = document.createElement("h1");
             crearNombre.textContent = item.name;
 
@@ -42,7 +45,7 @@ miForm.onsubmit = (event) => {
             const instrucciones = document.createElement("p")
             instrucciones.textContent = item.instructions;
 
-            div.append(crearNombre, dificultad, instrucciones);
+            div.append(crearNombre, dificultad, instrucciones,guardar);
 
             elemento.append(div);
 
@@ -50,7 +53,37 @@ miForm.onsubmit = (event) => {
             crearNombre.classList.add("titulo")
             dificultad.classList.add("dificultad")
             instrucciones.classList.add("instrucciones")
+            guardar.classList.add("guardar-btn")
 
+
+            guardar.addEventListener("click", () => {
+              const tarjeta = {
+                nombre: item.name,
+                dificultad: item.difficulty,
+                instrucciones: item.instructions,
+              };
+            
+              let tarjetasGuardadas = JSON.parse(localStorage.getItem("tarjetas")) || [];
+            
+              const yaExiste = tarjetasGuardadas.some(t => t.nombre === tarjeta.nombre);
+            
+              if (yaExiste) {
+                  
+                  guardar.disabled = true;
+                  guardar.classList.add("guardado");
+                return;
+              }
+            
+              tarjetasGuardadas.push(tarjeta);
+              localStorage.setItem("tarjetas", JSON.stringify(tarjetasGuardadas));
+            
+              
+              guardar.textContent = "Saved";
+              guardar.disabled = true;
+              guardar.classList.add("guardado");
+            
+            });
+            
           });
         console.log('Resultados encontrados:', resultados);
       })

@@ -295,7 +295,9 @@
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
   }
-  
+.section_rutina{
+    padding: 30px;
+}
   /* Contenedor principal de tarjetas */
   #contenedor {
     display: grid;
@@ -357,6 +359,7 @@
     z-index: 2;
     letter-spacing: 0.5px;
     line-height: 1.2;
+
   }
   
   .titulo::after {
@@ -497,6 +500,24 @@
   .guardado::after {
     content: ' ✓';
     margin-left: 5px;
+  }
+
+  .eliminar{
+    align-self: flex-end;
+    background: rgba(255, 230, 0, 0.15);
+    color: var(--color-primary);
+    border: 1px solid rgba(255, 230, 0, 0.3);
+    border-radius: var(--border-radius-sm);
+    padding: 0.7rem 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
   }
   
   /* Media queries para responsividad */
